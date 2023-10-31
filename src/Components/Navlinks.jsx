@@ -3,7 +3,8 @@ import sublinks from "../data";
 import { useGlobalContext } from "./context";
 
 const Navlinks = () => {
-  const { setPage } = useGlobalContext();
+  const { setPageId } = useGlobalContext();
+
   return (
     <div className="nav-links">
       {sublinks.map((link) => {
@@ -12,7 +13,7 @@ const Navlinks = () => {
           <button
             key={pageId}
             className="nav-link"
-            onMouseEnter={() => setPage(pageId)}
+            onMouseEnter={() => setPageId(pageId)}
           >
             {page}
           </button>

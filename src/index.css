@@ -266,7 +266,6 @@ body {
 Navbar
 =============== 
 */
-
 nav {
   height: 5rem;
   display: flex;
@@ -286,6 +285,7 @@ nav {
   letter-spacing: 3px;
   font-weight: 700;
 }
+
 .toggle-btn {
   width: 2rem;
   height: 2rem;

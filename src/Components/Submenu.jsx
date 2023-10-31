@@ -3,15 +3,26 @@ import { useGlobalContext } from "./context";
 import sublinks from "../data";
 
 const Submenu = () => {
-  const { pageId, closeSubmenu } = useGlobalContext();
+  const { pageId, setPageId } = useGlobalContext();
   const page = sublinks.find((el) => el.pageId === pageId);
   const submenuContainer = useRef(null);
 
+  const handleMouseLeave = (event) => {
+    const submenu = submenuContainer.current;
+    const { clientX, clientY } = event;
+    const { left, right, bottom } = submenu.getBoundingClientRect();
+
+    if (clientX < left - 1 || clientX > right - 1 || clientY > bottom - 1) {
+      setPageId(null);
+    }
+
+    console.log(clientX, clientY);
+  };
   return (
     <div
       className={pageId ? "submenu show-submenu" : "submenu"}
       ref={submenuContainer}
-      onMouseLeave={closeSubmenu}
+      onMouseLeave={handleMouseLeave}
     >
       <h5>{page?.page}</h5>
       <div

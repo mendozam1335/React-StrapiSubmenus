@@ -13,13 +13,6 @@ export const AppProvider = ({ children }) => {
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
-  const closeSubmenu = () => {
-    setPageId(null);
-  };
-  const setPage = (id) => {
-    setPageId(id);
-    console.log(id);
-  };
 
   return (
     <AppContext.Provider
@@ -27,9 +20,8 @@ export const AppProvider = ({ children }) => {
         isSidebarOpen,
         openSidebar,
         closeSidebar,
-        setPage,
         pageId,
-        closeSubmenu,
+        setPageId,
       }}
     >
       {children}
